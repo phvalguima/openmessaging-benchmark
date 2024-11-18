@@ -1,0 +1,26 @@
+Source: openmessaging-benchmark
+Maintainer: Canonical Data Platform Team <data-platform@lists.launchpad.net>
+Section: java
+Priority: optional
+Standards-Version: 0.0.1
+Build-Depends: 
+ debhelper-compat (= 13),
+ openjdk-17-jdk,
+ maven-debian-helper (>= 1.6.5),
+Build-Depends-Indep:
+ libbuild-helper-maven-plugin-java,
+ libmaven-bundle-plugin-java,
+ libmaven-enforcer-plugin-java,
+# libreplacer-java
+Rules-Requires-Root: no
+Homepage: https://github.com/openmessaging/benchmark
+
+
+Package: openmessaging-benchmark
+Architecture: all
+Depends:
+ ${maven:Depends},
+ ${misc:Depends}
+Recommends:
+ ${maven:OptionalDepends}
+Description: The OpenMessaging Benchmark Framework is a suite of tools that make it easy to benchmark distributed messaging systems in the cloud.

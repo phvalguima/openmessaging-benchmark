@@ -1,0 +1,5 @@
+openmessaging-benchmark (0.0.1-0) jammy; urgency=low
+
+  * Initial release.
+
+ -- Pedro Guimaraes <pedro.guimaraes@canonical.com>  Mon, 18 Nov 2024 18:06:45 +0100

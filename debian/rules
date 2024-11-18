@@ -1,0 +1,28 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	sh debian/replace-build.sh
+
+override_dh_auto_configure:
+	# dh_auto_configure
+
+override_dh_auto_install:
+	sh -c "tar xf package/target/openmessaging-benchmark-0.0.1-SNAPSHOT-bin.tar.gz -C package/"
+	sh -c "mv package/openmessaging-benchmark-* openmessaging-benchmark"
+	dh_install
+	# dh_auto_install
+
+override_dh_auto_test:
+	# dh_auto_test
+
+override_dh_auto_clean:
+	sh -c "find . -name 'target' -type d -exec rm -rf \"{}\" \; || true"
+	sh -c "rm -rf package/openmessaging-benchmark-* openmessaging-benchmark/"
+	# dh_auto_clean
+
+override_dh_strip_nondeterminism:
+	# Avoids https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=807669
+	# dh_strip_nondeterminism
